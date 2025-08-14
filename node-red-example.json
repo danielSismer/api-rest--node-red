@@ -1,0 +1,216 @@
+{
+  "id": "api-rest-example",
+  "label": "API REST Example",
+  "nodes": [
+    {
+      "id": "get-all-products",
+      "type": "http request",
+      "name": "Buscar Todos Produtos",
+      "method": "GET",
+      "url": "http://localhost:8080/api/produtos",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 100
+    },
+    {
+      "id": "create-product",
+      "type": "http request",
+      "name": "Criar Produto",
+      "method": "POST",
+      "url": "http://localhost:8080/api/produtos",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 200
+    },
+    {
+      "id": "update-product",
+      "type": "http request",
+      "name": "Atualizar Produto",
+      "method": "PUT",
+      "url": "http://localhost:8080/api/produtos/1",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 300
+    },
+    {
+      "id": "delete-product",
+      "type": "http request",
+      "name": "Deletar Produto",
+      "method": "DELETE",
+      "url": "http://localhost:8080/api/produtos/1",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 400
+    },
+    {
+      "id": "search-by-name",
+      "type": "http request",
+      "name": "Buscar por Nome",
+      "method": "GET",
+      "url": "http://localhost:8080/api/produtos/buscar?nome=samsung",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 500
+    },
+    {
+      "id": "health-check",
+      "type": "http request",
+      "name": "Health Check",
+      "method": "GET",
+      "url": "http://localhost:8080/api/produtos/health",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "x": 200,
+      "y": 600
+    },
+    {
+      "id": "product-data",
+      "type": "inject",
+      "name": "Dados do Produto",
+      "props": {
+        "payload": "{\"nome\":\"Novo Produto\",\"descricao\":\"Descrição do produto\",\"preco\":199.99,\"quantidadeEstoque\":25}",
+        "payloadType": "json"
+      },
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "x": 50,
+      "y": 200
+    },
+    {
+      "id": "update-data",
+      "type": "inject",
+      "name": "Dados para Atualizar",
+      "props": {
+        "payload": "{\"nome\":\"Produto Atualizado\",\"descricao\":\"Descrição atualizada\",\"preco\":179.99,\"quantidadeEstoque\":30}",
+        "payloadType": "json"
+      },
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "x": 50,
+      "y": 300
+    },
+    {
+      "id": "debug-output",
+      "type": "debug",
+      "name": "Debug Output",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 400,
+      "y": 100
+    }
+  ],
+  "configs": [],
+  "subflows": [],
+  "groups": [],
+  "wires": [
+    [
+      {
+        "id": "get-all-products",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "product-data",
+        "port": 0
+      },
+      {
+        "id": "create-product",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "create-product",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "update-data",
+        "port": 0
+      },
+      {
+        "id": "update-product",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "update-product",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "delete-product",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "search-by-name",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ],
+    [
+      {
+        "id": "health-check",
+        "port": 0
+      },
+      {
+        "id": "debug-output",
+        "port": 0
+      }
+    ]
+  ]
+}
